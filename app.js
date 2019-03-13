@@ -43,9 +43,10 @@ TestUser.save((error,user) => {
 
 })
 
-User.find({}).then(data => console.log(data))
+
 app.get('/',(request,response) => {
-    response.send('Hello world')
+    User.find({}).then(data => response.json(data))
+    console.log('/ - connected')
 })
 
 
